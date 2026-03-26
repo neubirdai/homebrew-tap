@@ -10,7 +10,7 @@ class Neubird < Formula
   on_macos do
     if Hardware::CPU.intel?
       url "https://github.com/neubirdai/neubird-desktop/releases/download/v1.0.42/neubird_1.0.42_darwin_amd64.tar.gz"
-      sha256 "f2a8a38e687830f64fee4ba68f7ba48557dbcb5dc18d55ff3d93ac21606f6131"
+      sha256 "0484c325c43cff748ec668fba6b353b3b3b132959d3a530f4d851a62caa87e4f"
 
       define_method(:install) do
         bin.install "neubird"
@@ -18,7 +18,7 @@ class Neubird < Formula
     end
     if Hardware::CPU.arm?
       url "https://github.com/neubirdai/neubird-desktop/releases/download/v1.0.42/neubird_1.0.42_darwin_arm64.tar.gz"
-      sha256 "05707f6330fd0bdfcbe73982e73f68610a15124419934f42470bd0e2dc22ff73"
+      sha256 "f8bfb3aa9b14d34c22fa885b7b87058bc1e347beae2122ad4c3fc368cfe5092b"
 
       define_method(:install) do
         bin.install "neubird"
@@ -29,14 +29,14 @@ class Neubird < Formula
   on_linux do
     if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
       url "https://github.com/neubirdai/neubird-desktop/releases/download/v1.0.42/neubird_1.0.42_linux_amd64.tar.gz"
-      sha256 "7b10e1eb94cee2df473be9979bd604a1078460a7c5c16b17d79e8c205ccb6d62"
+      sha256 "ad18492383980485e3ccaccb25e81ec8559eac2af53ff55ffdcf4263a3588cd9"
       define_method(:install) do
         bin.install "neubird"
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
       url "https://github.com/neubirdai/neubird-desktop/releases/download/v1.0.42/neubird_1.0.42_linux_arm64.tar.gz"
-      sha256 "ac5edcd6403b374a2b80a9256c3d3dac3fdfddb38b706a0e8b7360080d31366d"
+      sha256 "a2a01ef98b5142ab8518250bc40226d5dff3a085f4cc7289a03bcdf4cd5d1c86"
       define_method(:install) do
         bin.install "neubird"
       end
