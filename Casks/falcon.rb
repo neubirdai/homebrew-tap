@@ -5,30 +5,36 @@
 # workflow. Manual edits will be overwritten on the next release.
 # See: https://github.com/neubirdai/falcon-app/blob/neubird-main/.github/workflows/release.yml
 cask "falcon" do
-  version "0.1.0"
-  sha256 "de9e9665b8b02ca1bd6521613df348157822553370a3c901e719f04f48a4f0e9"
+  version "0.1.1"
+  sha256 "02f73d2032a32f3bef6506ed468ed6455f0bc6a2ee1ed72f338e207116947614"
 
   url "https://github.com/neubirdai/neubird-falcon-app/releases/download/v#{version}/NeubirdFalcon-darwin-arm64.dmg"
   name "Neubird Falcon"
   desc "AI-native workspace for SRE operations"
   homepage "https://neubird.ai/"
 
+  # We only ship arm64 today. Intel users get a clear error from
+  # brew instead of an exec-format failure at first launch.
   depends_on macos: ">= :catalina", arch: :arm64
 
   app "Neubird Falcon.app"
 
-  # Strip the macOS quarantine attribute that Homebrew Cask sets by
-  # default on every download. Without this, first launch shows
-  # "Neubird Falcon is damaged and can't be opened" with no escape
-  # from the UI -- because we don't yet ship Apple-notarized builds.
-  # Standard pattern for casks of unsigned indie apps; remove this
-  # block once we have a Developer ID and notarization wired up.
+  # Strip the macOS quarantine attribute that Homebrew Cask sets
+  # by default on every download. Without this, first launch
+  # shows "Neubird Falcon is damaged and can't be opened" with
+  # no escape from the UI -- because we don't yet ship Apple-
+  # notarized builds. Standard pattern for casks of unsigned
+  # indie apps; remove this block once we have a Developer ID
+  # and notarization wired up in the build.
   postflight do
     system_command "/usr/bin/xattr",
                    args: ["-r", "-d", "com.apple.quarantine", "#{appdir}/Neubird Falcon.app"],
                    sudo: false
   end
 
+  # Things Falcon and the bundled neubird sidecar drop on disk.
+  # zap is opt-in (`brew uninstall --zap`) so we can be liberal
+  # without wiping data on every plain `brew uninstall`.
   zap trash: [
     "~/.neubird-falcon",
     "~/Library/Application Support/Neubird Falcon",
