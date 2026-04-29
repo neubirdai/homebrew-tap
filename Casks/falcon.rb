@@ -17,6 +17,18 @@ cask "falcon" do
 
   app "Neubird Falcon.app"
 
+  # Strip the macOS quarantine attribute that Homebrew Cask sets by
+  # default on every download. Without this, first launch shows
+  # "Neubird Falcon is damaged and can't be opened" with no escape
+  # from the UI -- because we don't yet ship Apple-notarized builds.
+  # Standard pattern for casks of unsigned indie apps; remove this
+  # block once we have a Developer ID and notarization wired up.
+  postflight do
+    system_command "/usr/bin/xattr",
+                   args: ["-r", "-d", "com.apple.quarantine", "#{appdir}/Neubird Falcon.app"],
+                   sudo: false
+  end
+
   zap trash: [
     "~/.neubird-falcon",
     "~/Library/Application Support/Neubird Falcon",
