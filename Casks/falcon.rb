@@ -5,8 +5,8 @@
 # workflow. Manual edits will be overwritten on the next release.
 # See: https://github.com/neubirdai/falcon-app/blob/neubird-main/.github/workflows/release.yml
 cask "falcon" do
-  version "0.1.2"
-  sha256 "2c8d65ddbb8151e7cd7633d65746fe3e7dcef76346fce27f932c41a0a0dafd4d"
+  version "0.1.3"
+  sha256 "bbbd6f72b67504f50f0bd4bb9a09fc2807cbe3d62b198184e2880e140d45f9bb"
 
   url "https://github.com/neubirdai/neubird-falcon-app/releases/download/v#{version}/NeubirdFalcon-darwin-arm64.dmg"
   name "Neubird Falcon"
