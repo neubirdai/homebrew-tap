@@ -5,20 +5,20 @@
 class Neubird < Formula
   desc "AI-powered SRE platform"
   homepage "https://neubird.ai"
-  version "1.0.66"
+  version "1.0.67"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/neubirdai/neubird-desktop/releases/download/v1.0.66/neubird_1.0.66_darwin_amd64.tar.gz"
-      sha256 "8b4bf14ec2cdaf9f3481e210bc1a69e340f7db8d671e4937df5bf47bfbabb6d9"
+      url "https://github.com/neubirdai/neubird-desktop/releases/download/v1.0.67/neubird_1.0.67_darwin_amd64.tar.gz"
+      sha256 "79bccff73d07e2678bfa784e98493aaa6356b487ea961d3c8f7193fc8ef1d72a"
 
       define_method(:install) do
         bin.install "neubird"
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/neubirdai/neubird-desktop/releases/download/v1.0.66/neubird_1.0.66_darwin_arm64.tar.gz"
-      sha256 "5abc412a37a861a2cd0e06777eadba9ad6812068e8a7c2eda1e35e09c99a853c"
+      url "https://github.com/neubirdai/neubird-desktop/releases/download/v1.0.67/neubird_1.0.67_darwin_arm64.tar.gz"
+      sha256 "4f1082cd6926812b5238e503bf5b262edcaf742fb34d5c56defdbb15060f8dea"
 
       define_method(:install) do
         bin.install "neubird"
@@ -28,15 +28,15 @@ class Neubird < Formula
 
   on_linux do
     if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
-      url "https://github.com/neubirdai/neubird-desktop/releases/download/v1.0.66/neubird_1.0.66_linux_amd64.tar.gz"
-      sha256 "4fec4b44a6e22a3868d7898c61c01dcad744edf6f3eab7adef5d65c70b51d83d"
+      url "https://github.com/neubirdai/neubird-desktop/releases/download/v1.0.67/neubird_1.0.67_linux_amd64.tar.gz"
+      sha256 "0cde1e8ed7cd219166c79765256e9b3b26b66d4fef3962bd1052214f4bc061bd"
       define_method(:install) do
         bin.install "neubird"
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/neubirdai/neubird-desktop/releases/download/v1.0.66/neubird_1.0.66_linux_arm64.tar.gz"
-      sha256 "4a1cc3f22f625279dd54562784be7d5093102c9c6bd1416e92273ac946e13db9"
+      url "https://github.com/neubirdai/neubird-desktop/releases/download/v1.0.67/neubird_1.0.67_linux_arm64.tar.gz"
+      sha256 "711800d9c44f13255d6dadda9db8bd2f5fceeb27489405a039cb054ce921f990"
       define_method(:install) do
         bin.install "neubird"
       end
