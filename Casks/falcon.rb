@@ -5,8 +5,8 @@
 # workflow. Manual edits will be overwritten on the next release.
 # See: https://github.com/neubirdai/falcon-app/blob/neubird-main/.github/workflows/release.yml
 cask "falcon" do
-  version "0.1.13"
-  sha256 "f77bb0cb1f9617de980f43cecbe399541107a344280450109d64da1870e89811"
+  version "0.1.14"
+  sha256 "7240dcd63eb2635eb76b8651cbd4b93b5d7f8348e64c9c00c17efabcb4602472"
 
   url "https://github.com/neubirdai/neubird-falcon-app/releases/download/v#{version}/NeubirdFalcon-darwin-arm64.dmg"
   name "Neubird Falcon"
@@ -23,9 +23,8 @@ cask "falcon" do
   # by default on every download. Without this, first launch
   # shows "Neubird Falcon is damaged and can't be opened" with
   # no escape from the UI -- because we don't yet ship Apple-
-  # notarized builds. Standard pattern for casks of unsigned
-  # indie apps; remove this block once we have a Developer ID
-  # and notarization wired up in the build.
+  # notarized builds. Remove this block once we have a Developer
+  # ID and notarization wired up in the build.
   postflight do
     system_command "/usr/bin/xattr",
                    args: ["-r", "-d", "com.apple.quarantine", "#{appdir}/Neubird Falcon.app"],
@@ -33,8 +32,6 @@ cask "falcon" do
   end
 
   # Things Falcon and the bundled neubird sidecar drop on disk.
-  # zap is opt-in (`brew uninstall --zap`) so we can be liberal
-  # without wiping data on every plain `brew uninstall`.
   zap trash: [
     "~/.neubird-falcon",
     "~/Library/Application Support/Neubird Falcon",
