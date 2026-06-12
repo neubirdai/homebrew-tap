@@ -15,7 +15,7 @@ cask "falcon" do
 
   # We only ship arm64 today. Intel users get a clear error from
   # brew instead of an exec-format failure at first launch.
-  depends_on macos: ">= :catalina", arch: :arm64
+  depends_on macos: :catalina, arch: :arm64
 
   app "Neubird Falcon.app"
 
