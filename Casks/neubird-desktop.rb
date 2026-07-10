@@ -5,11 +5,11 @@
 # workflow. Manual edits will be overwritten on the next release.
 # See: https://github.com/neubirdai/falcon-app/blob/neubird-main/.github/workflows/release.yml
 cask "neubird-desktop" do
-  version "0.1.58"
-  sha256 "223d92561023f0c3fab1a114c93da0cb41bf4fce856c8322461b479fc872faf9"
+  version "0.1.59"
+  sha256 "f44abc247720d9e51cc2161d32dfa4559ef5460c7f9e20c28dd3612d70031648"
 
-  url "https://github.com/neubirdai/neubird-desktop/releases/download/v#{version}/NeubirdFalcon-darwin-arm64.dmg"
-  name "Neubird Falcon"
+  url "https://github.com/neubirdai/neubird-desktop/releases/download/v#{version}/NeubirdDesktop-darwin-arm64.dmg"
+  name "Neubird Desktop"
   desc "AI-native workspace for SRE operations"
   homepage "https://neubird.ai/"
 
@@ -17,27 +17,27 @@ cask "neubird-desktop" do
   # brew instead of an exec-format failure at first launch.
   depends_on macos: :catalina, arch: :arm64
 
-  app "Neubird Falcon.app"
+  app "Neubird Desktop.app"
 
   # Strip the macOS quarantine attribute that Homebrew Cask sets
   # by default on every download. Without this, first launch
-  # shows "Neubird Falcon is damaged and can't be opened" with
+  # shows "Neubird Desktop is damaged and can't be opened" with
   # no escape from the UI -- because we don't yet ship Apple-
   # notarized builds. Remove this block once we have a Developer
   # ID and notarization wired up in the build.
   postflight do
     system_command "/usr/bin/xattr",
-                   args: ["-r", "-d", "com.apple.quarantine", "#{appdir}/Neubird Falcon.app"],
+                   args: ["-r", "-d", "com.apple.quarantine", "#{appdir}/Neubird Desktop.app"],
                    sudo: false
   end
 
   # Things Falcon and the bundled neubird sidecar drop on disk.
   zap trash: [
     "~/.neubird-falcon",
-    "~/Library/Application Support/Neubird Falcon",
+    "~/Library/Application Support/Neubird Desktop",
     "~/Library/Caches/ai.neubird.falcon",
-    "~/Library/Caches/Neubird Falcon",
-    "~/Library/Logs/Neubird Falcon",
+    "~/Library/Caches/Neubird Desktop",
+    "~/Library/Logs/Neubird Desktop",
     "~/Library/Preferences/ai.neubird.falcon.plist",
     "~/Library/Saved Application State/ai.neubird.falcon.savedState",
   ]
