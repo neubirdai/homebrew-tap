@@ -5,20 +5,20 @@
 class NeubirdTerminal < Formula
   desc "AI-powered SRE platform"
   homepage "https://neubird.ai"
-  version "1.0.105"
+  version "1.0.106"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/neubirdai/neubird-terminal/releases/download/v1.0.105/neubird_1.0.105_darwin_amd64.tar.gz"
-      sha256 "6f16cd05bdaf09fc028bf188637b15d3ea298a248aacdfc1455ffa8dc14b93f7"
+      url "https://github.com/neubirdai/neubird-terminal/releases/download/v1.0.106/neubird_1.0.106_darwin_amd64.tar.gz"
+      sha256 "75c85810d80400393abb77a370b65c66f9bc26dfec64ea37f97f53c01f2e449e"
 
       define_method(:install) do
         bin.install "neubird"
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/neubirdai/neubird-terminal/releases/download/v1.0.105/neubird_1.0.105_darwin_arm64.tar.gz"
-      sha256 "cbac00a027d5b3a661c531cdf79f5279d069334130880750dd265485baeb14bd"
+      url "https://github.com/neubirdai/neubird-terminal/releases/download/v1.0.106/neubird_1.0.106_darwin_arm64.tar.gz"
+      sha256 "8e4992568b238ec24c1ce251f083ba49e1c69d07cc1b7621b83226f32c44ed3b"
 
       define_method(:install) do
         bin.install "neubird"
@@ -28,15 +28,15 @@ class NeubirdTerminal < Formula
 
   on_linux do
     if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
-      url "https://github.com/neubirdai/neubird-terminal/releases/download/v1.0.105/neubird_1.0.105_linux_amd64.tar.gz"
-      sha256 "ec36de22dbb40d256cc13fd6ca3986ea16a6468df7c121fbcc75eb0e365f1765"
+      url "https://github.com/neubirdai/neubird-terminal/releases/download/v1.0.106/neubird_1.0.106_linux_amd64.tar.gz"
+      sha256 "eaf915f2eeb6ded5cd49cf1d99e5cd07551e7694c362ae2a7d87f7b215d79353"
       define_method(:install) do
         bin.install "neubird"
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/neubirdai/neubird-terminal/releases/download/v1.0.105/neubird_1.0.105_linux_arm64.tar.gz"
-      sha256 "2f535235cdbf07b1b7e0e17dd3c4338e703d07a612ae2b3b7e963deceab760a0"
+      url "https://github.com/neubirdai/neubird-terminal/releases/download/v1.0.106/neubird_1.0.106_linux_arm64.tar.gz"
+      sha256 "38b91364bef05362f57ef07067b48ce8619e89f89b5edf920189e9758c93fa9a"
       define_method(:install) do
         bin.install "neubird"
       end
